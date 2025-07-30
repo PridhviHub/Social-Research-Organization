@@ -123,31 +123,43 @@
 
 
 
-  <!-- Some dummy content -->
-<div style="height:1500px; background-color:#222; color:white; padding:20px;">
-  <h1>Scroll Down</h1>
-  <p>This is a long page. Scroll down to see the "Go to Top" button.</p>
-</div>
-
-<!-- Go to Top button -->
-<a href="#top" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #0a74da;
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
+ <button onclick="scrollToTop()" id="topBtn" style="
+  display:none;
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:99;
+  border:none;
+  outline:none;
+  background-color:#0a74da;
+  color:white;
+  cursor:pointer;
+  padding:10px 15px;
+  border-radius:50%;
+  font-size:18px;
 ">
-  ↑ Top
-</a>
+  ↑
+</button>
 
-<!-- Anchor at the top -->
-<div id="top"></div>
+<!-- Script -->
+<script>
+  // Show button after scrolling
+  window.onscroll = function() {
+    var btn = document.getElementById("topBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
 
+  // Scroll to top on click
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+  
 
 
 
